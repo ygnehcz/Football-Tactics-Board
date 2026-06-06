@@ -141,87 +141,23 @@ body {
 }
 .export-label.visible { display: block; }
 
-/* ----- field markings ----- */
-.field-markings { position: absolute; inset: 0; pointer-events: none; }
 
-.field-outline { position: absolute; inset: 0; border: 2px solid var(--white-line); }
-
-.center-line { position: absolute; top: 50%; left: 0; right: 0; height: 2px; background: var(--white-line); }
-
-.center-circle {
-  position: absolute; top: 50%; left: 50%;
-  width: 20%; aspect-ratio: 1;
-  border: 2px solid var(--white-line); border-radius: 50%;
-  transform: translate(-50%, -50%);
+/* ----- SVG field lines ----- */
+.field-lines {
+  position: absolute; inset: 0; z-index: 2;
+  width: 100%; height: 100%;
+  pointer-events: none;
 }
-
-.center-dot {
-  position: absolute; top: 50%; left: 50%;
-  width: 6px; height: 6px; background: var(--white-line);
-  border-radius: 50%; transform: translate(-50%, -50%);
-}
-
-/* penalty area */
-.penalty-area {
-  position: absolute; left: 13%; width: 74%; height: 17%;
-  border: 2px solid var(--white-line);
-}
-.penalty-area-top { top: 0; border-bottom: none; }
-.penalty-area-bottom { bottom: 0; border-top: none; }
-
-/* penalty spot */
-.penalty-spot {
-  position: absolute; left: 50%; width: 8px; height: 8px;
-  background: var(--white-line); border-radius: 50%;
-  transform: translate(-50%, -50%);
-}
-.penalty-spot-top { top: 66%; }
-.penalty-spot-bottom { top: 34%; }
-
-/* penalty arc */
-.penalty-arc {
-  position: absolute; left: 50%; width: 20%; aspect-ratio: 2;
-  border: 2px solid var(--white-line);
-  border-radius: 0 0 100% 100%;
-  transform: translate(-50%, 0);
-}
-.penalty-arc-top { top: 16%; border-top: none; }
-.penalty-arc-bottom { bottom: 16%; border-top: none; border-radius: 100% 100% 0 0; }
-
-/* goal area */
-.goal-area {
-  position: absolute; left: 26%; width: 48%; height: 50%;
-  border: 2px solid var(--white-line);
-}
-.goal-area-top { top: 0; border-bottom: none; }
-.goal-area-bottom { bottom: 0; border-top: none; }
-
-.goal {
-  position: absolute; left: 28%; width: 44%; height: 3.5%;
-  background: rgba(255,255,255,0.25); border: 2px solid var(--white-line);
-}
-.goal-top { top: 0; }
-.goal-bottom { bottom: 0; }
-
-/* corner arcs */
-.corner-arc {
-  position: absolute; width: 7%; aspect-ratio: 1;
-  border: 1.5px solid var(--white-line);
-}
-.corner-tl { top: 0; left: 0; border-radius: 0 0 100% 0; border-top: none; border-left: none; }
-.corner-tr { top: 0; right: 0; border-radius: 0 0 0 100%; border-top: none; border-right: none; }
-.corner-bl { bottom: 0; left: 0; border-radius: 0 100% 0 0; border-bottom: none; border-left: none; }
-.corner-br { bottom: 0; right: 0; border-radius: 100% 0 0 0; border-bottom: none; border-right: none; }
 
 /* ----- attack direction ----- */
 .attack-direction {
   position: absolute; top: 50%; left: 50%;
   transform: translate(-50%, -50%); pointer-events: none;
-  opacity: 0.1; font-size: 1.5rem; font-weight: 700; color: #fff; white-space: nowrap;
+  opacity: 0.1; z-index: 3; font-size: 1.5rem; font-weight: 700; color: #fff; white-space: nowrap;
 }
 
 /* ----- players container ----- */
-.players-container { position: absolute; inset: 0; z-index: 10; }
+.players-container { position: absolute; inset: 0; z-index: 5; }
 
 /* ----- player dots ----- */
 .player {
@@ -233,7 +169,7 @@ body {
   text-shadow: 0 1px 2px rgba(0,0,0,0.4);
   box-shadow: 0 2px 6px rgba(0,0,0,0.3);
   transform: translate(-50%, -50%);
-  transition: box-shadow 0.15s; z-index: 20;
+  transition: box-shadow 0.15s; z-index: 50;
   -webkit-tap-highlight-color: transparent;
 }
 .player:active { cursor: grabbing; }
@@ -252,7 +188,7 @@ body {
 /* ----- football (draggable ball) ----- */
 .ball {
   position: absolute; width: 28px; height: 28px;
-  z-index: 25; cursor: grab; transform: translate(-50%, -50%);
+  z-index: 4; cursor: grab; transform: translate(-50%, -50%);
   background: radial-gradient(circle at 35% 35%, #fff, #e0e0e0);
   border-radius: 50%; border: 1.5px solid #333;
   box-shadow: 0 2px 6px rgba(0,0,0,0.35);

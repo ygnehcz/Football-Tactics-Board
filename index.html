@@ -73,37 +73,45 @@
         <!-- 导出标签（导出时显示） -->
         <div class="export-label" id="exportLabel"></div>
 
-        <!-- 球场标记层 -->
-        <div class="field-markings">
-          <div class="field-outline"></div>
-          <div class="center-line"></div>
-          <div class="center-circle"></div>
-          <div class="center-dot"></div>
+        <!-- SVG 球场标线层 -->
+        <svg class="field-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <!-- 外边线 -->
+          <rect x="2" y="2" width="96" height="96" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="0.4"/>
+          <!-- 中线 -->
+          <line x1="2" y1="50" x2="98" y2="50" stroke="rgba(255,255,255,0.9)" stroke-width="0.4"/>
+          <!-- 中圈 -->
+          <circle cx="50" cy="50" r="9" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="0.4"/>
+          <!-- 中点 -->
+          <circle cx="50" cy="50" r="0.8" fill="rgba(255,255,255,0.9)"/>
 
-          <!-- 上半场标线 -->
-          <div class="penalty-area penalty-area-top">
-            <div class="penalty-spot penalty-spot-top"></div>
-            <div class="penalty-arc penalty-arc-top"></div>
-            <div class="goal-area goal-area-top">
-              <div class="goal goal-top"></div>
-            </div>
-          </div>
+          <!-- 上方大禁区 -->
+          <path d="M 24 2 L 24 18 L 76 18 L 76 2" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="0.4"/>
+          <!-- 上方小禁区 -->
+          <path d="M 37 2 L 37 9 L 63 9 L 63 2" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="0.4"/>
+          <!-- 上方罚球点 -->
+          <circle cx="50" cy="13" r="0.7" fill="rgba(255,255,255,0.9)"/>
+          <!-- 上方罚球弧 -->
+          <path d="M 41 18 A 9 9 0 0 0 59 18" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="0.4"/>
+          <!-- 上方球门 -->
+          <rect x="42" y="2" width="16" height="2" fill="rgba(255,255,255,0.25)" stroke="rgba(255,255,255,0.9)" stroke-width="0.3"/>
 
-          <!-- 下半场标线 -->
-          <div class="penalty-area penalty-area-bottom">
-            <div class="penalty-spot penalty-spot-bottom"></div>
-            <div class="penalty-arc penalty-arc-bottom"></div>
-            <div class="goal-area goal-area-bottom">
-              <div class="goal goal-bottom"></div>
-            </div>
-          </div>
+          <!-- 下方大禁区 -->
+          <path d="M 24 98 L 24 82 L 76 82 L 76 98" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="0.4"/>
+          <!-- 下方小禁区 -->
+          <path d="M 37 98 L 37 91 L 63 91 L 63 98" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="0.4"/>
+          <!-- 下方罚球点 -->
+          <circle cx="50" cy="87" r="0.7" fill="rgba(255,255,255,0.9)"/>
+          <!-- 下方罚球弧 -->
+          <path d="M 41 82 A 9 9 0 0 1 59 82" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="0.4"/>
+          <!-- 下方球门 -->
+          <rect x="42" y="96" width="16" height="2" fill="rgba(255,255,255,0.25)" stroke="rgba(255,255,255,0.9)" stroke-width="0.3"/>
 
-          <!-- 角旗弧线 -->
-          <div class="corner-arc corner-tl"></div>
-          <div class="corner-arc corner-tr"></div>
-          <div class="corner-arc corner-bl"></div>
-          <div class="corner-arc corner-br"></div>
-        </div>
+          <!-- 角球弧 -->
+          <path d="M 2 5 A 3 3 0 0 1 5 2" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="0.35"/>
+          <path d="M 98 5 A 3 3 0 0 0 95 2" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="0.35"/>
+          <path d="M 2 95 A 3 3 0 0 0 5 98" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="0.35"/>
+          <path d="M 98 95 A 3 3 0 0 1 95 98" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="0.35"/>
+        </svg>
 
         <!-- 球员容器 -->
         <div class="players-container" id="playersContainer"></div>
