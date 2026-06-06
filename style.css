@@ -126,7 +126,7 @@ body {
       rgba(0,0,0,0.04) 80px
     ),
     linear-gradient(180deg, #3ca55c 0%, #2d8a4e 30%, #2d8a4e 70%, #3ca55c 100%);
-  border-radius: 6px; overflow: hidden;
+  border-radius: 0; overflow: hidden;
   box-shadow: 0 4px 16px rgba(0,0,0,0.2);
   user-select: none; -webkit-user-select: none;
 }
