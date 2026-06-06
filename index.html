@@ -30,57 +30,99 @@
       <select id="formation"></select>
     </div>
 
+    <div class="control-row">
+      <label for="langToggle">位置：</label>
+      <select id="langToggle">
+        <option value="en">EN</option>
+        <option value="zh" selected>中文</option>
+      </select>
+    </div>
+
     <div class="control-row buttons-row">
       <button id="btnReset">🔄 重置阵型</button>
       <button id="btnExport">📸 导出图片</button>
       <button id="btnSave">💾 保存阵型</button>
       <button id="btnLoad">📂 加载阵型</button>
       <button id="btnColorToggle">🎨 切换队服</button>
+      <button id="btnTeamInfo">📋 队伍信息</button>
+      <button id="btnResetBall">⚽ 重置足球</button>
     </div>
   </section>
 
-  <!-- ====== 球场区域 ====== -->
-  <div class="field-wrapper" id="fieldWrapper">
-    <div class="field" id="field">
+  <!-- ====== 导出区域（含队伍信息 + 球场） ====== -->
+  <div id="exportArea">
 
-      <!-- 导出标签（导出时显示） -->
-      <div class="export-label" id="exportLabel"></div>
-
-      <!-- 球场标记层 -->
-      <div class="field-markings">
-        <div class="field-outline"></div>
-        <div class="center-line"></div>
-        <div class="center-circle"></div>
-        <div class="center-dot"></div>
-
-        <!-- 上方半场（对方半场） -->
-        <div class="penalty-area penalty-area-top">
-          <div class="goal-area goal-area-top">
-            <div class="goal goal-top"></div>
-          </div>
-        </div>
-
-        <!-- 下方半场（我方半场） -->
-        <div class="penalty-area penalty-area-bottom">
-          <div class="goal-area goal-area-bottom">
-            <div class="goal goal-bottom"></div>
-          </div>
-        </div>
+    <!-- 队伍信息展示条 -->
+    <div class="team-info-bar" id="teamInfoBar">
+      <div class="team-info-left">
+        <span class="team-name-home" id="tiHomeName">主队</span>
+        <span class="team-vs" id="tiVs">vs</span>
+        <span class="team-name-away" id="tiAwayName">客队</span>
       </div>
-
-      <!-- 球员容器 -->
-      <div class="players-container" id="playersContainer"></div>
-
-      <!-- 进攻方向指示 -->
-      <div class="attack-direction">
-        <span>⬆ 进攻方向 ⬆</span>
+      <div class="team-info-right">
+        <span class="team-info-detail" id="tiComp">--</span>
+        <span class="team-info-detail" id="tiDate">--</span>
+        <span class="team-info-detail" id="tiCoach">--</span>
       </div>
     </div>
-  </div>
+
+    <!-- 球场区域 -->
+    <div class="field-wrapper" id="fieldWrapper">
+      <div class="field" id="field">
+
+        <!-- 导出标签（导出时显示） -->
+        <div class="export-label" id="exportLabel"></div>
+
+        <!-- 球场标记层 -->
+        <div class="field-markings">
+          <div class="field-outline"></div>
+          <div class="center-line"></div>
+          <div class="center-circle"></div>
+          <div class="center-dot"></div>
+
+          <!-- 上半场标线 -->
+          <div class="penalty-area penalty-area-top">
+            <div class="penalty-spot penalty-spot-top"></div>
+            <div class="penalty-arc penalty-arc-top"></div>
+            <div class="goal-area goal-area-top">
+              <div class="goal goal-top"></div>
+            </div>
+          </div>
+
+          <!-- 下半场标线 -->
+          <div class="penalty-area penalty-area-bottom">
+            <div class="penalty-spot penalty-spot-bottom"></div>
+            <div class="penalty-arc penalty-arc-bottom"></div>
+            <div class="goal-area goal-area-bottom">
+              <div class="goal goal-bottom"></div>
+            </div>
+          </div>
+
+          <!-- 角旗弧线 -->
+          <div class="corner-arc corner-tl"></div>
+          <div class="corner-arc corner-tr"></div>
+          <div class="corner-arc corner-bl"></div>
+          <div class="corner-arc corner-br"></div>
+        </div>
+
+        <!-- 球员容器 -->
+        <div class="players-container" id="playersContainer"></div>
+
+        <!-- 足球 -->
+        <div class="ball" id="ball" data-ball="true"></div>
+
+        <!-- 进攻方向指示 -->
+        <div class="attack-direction">
+          <span>⬆ 进攻方向 ⬆</span>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /exportArea -->
 
   <!-- ====== 底部说明 ====== -->
   <footer class="app-footer">
-    <p>🖐 拖动球员调整位置 &nbsp;|&nbsp; 👆 双击球员编辑号码、姓名、位置 &nbsp;|&nbsp; 📱 手机端也支持拖动</p>
+    <p>🖐 拖动球员调整位置 &nbsp;|&nbsp; 👆 双击球员编辑信息 &nbsp;|&nbsp; ⚽ 足球可拖动</p>
   </footer>
 
   <!-- ====== 编辑球员弹窗 ====== -->
@@ -100,12 +142,87 @@
         </div>
         <div class="form-group">
           <label for="editPosition">场上位置</label>
-          <input type="text" id="editPosition" placeholder="如 GK, DF, MF, FW, CM, ST" autocomplete="off">
+          <select id="editPosition">
+            <option value="GK">GK 门将</option>
+            <option value="CB">CB 中后卫</option>
+            <option value="LB">LB 左后卫</option>
+            <option value="RB">RB 右后卫</option>
+            <option value="LWB">LWB 左翼卫</option>
+            <option value="RWB">RWB 右翼卫</option>
+            <option value="CDM">CDM 防守中场</option>
+            <option value="CM">CM 中场</option>
+            <option value="CAM">CAM 攻击中场</option>
+            <option value="LM">LM 左中场</option>
+            <option value="RM">RM 右中场</option>
+            <option value="LW">LW 左边锋</option>
+            <option value="RW">RW 右边锋</option>
+            <option value="ST">ST 前锋</option>
+            <option value="CF">CF 中锋</option>
+            <option value="SS">SS 影锋</option>
+          </select>
         </div>
       </div>
       <div class="modal-footer">
         <button type="button" id="btnCancelEdit" class="btn-cancel">取消</button>
         <button type="button" id="btnSaveEdit" class="btn-save">保存</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== 队伍信息弹窗 ====== -->
+  <div class="modal-overlay" id="teamInfoModal">
+    <div class="modal-dialog modal-dialog-wide">
+      <div class="modal-header">
+        <h2>📋 编辑队伍信息</h2>
+      </div>
+      <div class="modal-body modal-body-scroll">
+        <div class="form-group">
+          <label for="tiTeamName">队伍名称</label>
+          <input type="text" id="tiTeamName" placeholder="如：红魔联队" autocomplete="off">
+        </div>
+        <div class="form-group">
+          <label for="tiShortName">队伍简称</label>
+          <input type="text" id="tiShortName" placeholder="如：红魔" autocomplete="off" maxlength="6">
+        </div>
+        <div class="form-group">
+          <label for="tiSide">主/客队</label>
+          <select id="tiSide">
+            <option value="home">主队</option>
+            <option value="away">客队</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="tiOpponent">对手名称</label>
+          <input type="text" id="tiOpponent" placeholder="如：蓝狮军团" autocomplete="off">
+        </div>
+        <div class="form-group">
+          <label for="tiCompetition">赛事名称</label>
+          <input type="text" id="tiCompetition" placeholder="如：2026 夏季联赛" autocomplete="off">
+        </div>
+        <div class="form-group">
+          <label for="tiMatchDate">比赛日期</label>
+          <input type="date" id="tiMatchDate">
+        </div>
+        <div class="form-group">
+          <label for="tiVenue">场地</label>
+          <input type="text" id="tiVenue" placeholder="如：市中心体育场" autocomplete="off">
+        </div>
+        <div class="form-group">
+          <label for="tiCoach">主教练</label>
+          <input type="text" id="tiCoach" placeholder="如：张教练" autocomplete="off">
+        </div>
+        <div class="form-group">
+          <label for="tiCaptain">队长</label>
+          <input type="text" id="tiCaptain" placeholder="如：10号" autocomplete="off">
+        </div>
+        <div class="form-group">
+          <label for="tiNotes">备注</label>
+          <input type="text" id="tiNotes" placeholder="如：雨天、草地湿滑" autocomplete="off">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="btnCancelTeamInfo" class="btn-cancel">取消</button>
+        <button type="button" id="btnSaveTeamInfo" class="btn-save">保存</button>
       </div>
     </div>
   </div>
