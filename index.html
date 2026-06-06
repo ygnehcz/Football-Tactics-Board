@@ -35,12 +35,16 @@
       <button id="btnExport">📸 导出图片</button>
       <button id="btnSave">💾 保存阵型</button>
       <button id="btnLoad">📂 加载阵型</button>
+      <button id="btnColorToggle">🎨 切换队服</button>
     </div>
   </section>
 
   <!-- ====== 球场区域 ====== -->
   <div class="field-wrapper" id="fieldWrapper">
     <div class="field" id="field">
+
+      <!-- 导出标签（导出时显示） -->
+      <div class="export-label" id="exportLabel"></div>
 
       <!-- 球场标记层 -->
       <div class="field-markings">
@@ -78,6 +82,9 @@
   <footer class="app-footer">
     <p>🖐 拖动球员调整位置 &nbsp;|&nbsp; 👆 点击球员编辑号码、姓名、位置 &nbsp;|&nbsp; 📱 手机端也支持拖动</p>
   </footer>
+
+  <!-- ====== Toast 提示容器 ====== -->
+  <div class="toast-container" id="toastContainer"></div>
 
   <!-- html2canvas CDN -->
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
