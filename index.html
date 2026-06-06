@@ -80,8 +80,35 @@
 
   <!-- ====== 底部说明 ====== -->
   <footer class="app-footer">
-    <p>🖐 拖动球员调整位置 &nbsp;|&nbsp; 👆 点击球员编辑号码、姓名、位置 &nbsp;|&nbsp; 📱 手机端也支持拖动</p>
+    <p>🖐 拖动球员调整位置 &nbsp;|&nbsp; 👆 双击球员编辑号码、姓名、位置 &nbsp;|&nbsp; 📱 手机端也支持拖动</p>
   </footer>
+
+  <!-- ====== 编辑球员弹窗 ====== -->
+  <div class="modal-overlay" id="editModal">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h2>✏️ 编辑球员</h2>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="editNumber">球衣号码</label>
+          <input type="number" id="editNumber" min="1" max="99" placeholder="1-99" inputmode="numeric">
+        </div>
+        <div class="form-group">
+          <label for="editName">球员姓名</label>
+          <input type="text" id="editName" placeholder="可选，如：梅西" autocomplete="off">
+        </div>
+        <div class="form-group">
+          <label for="editPosition">场上位置</label>
+          <input type="text" id="editPosition" placeholder="如 GK, DF, MF, FW, CM, ST" autocomplete="off">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="btnCancelEdit" class="btn-cancel">取消</button>
+        <button type="button" id="btnSaveEdit" class="btn-save">保存</button>
+      </div>
+    </div>
+  </div>
 
   <!-- ====== Toast 提示容器 ====== -->
   <div class="toast-container" id="toastContainer"></div>
