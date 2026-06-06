@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>足球排兵布阵战术板</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ====== 顶部标题 ====== -->
+  <header class="app-header">
+    <h1>⚽ 足球排兵布阵战术板</h1>
+  </header>
+
+  <!-- ====== 控制区 ====== -->
+  <section class="controls">
+    <div class="control-row">
+      <label for="playerCount">人数：</label>
+      <select id="playerCount">
+        <option value="5">5人制</option>
+        <option value="7">7人制</option>
+        <option value="8">8人制</option>
+        <option value="11" selected>11人制</option>
+      </select>
+    </div>
+
+    <div class="control-row">
+      <label for="formation">阵型：</label>
+      <select id="formation"></select>
+    </div>
+
+    <div class="control-row buttons-row">
+      <button id="btnReset">🔄 重置阵型</button>
+      <button id="btnExport">📸 导出图片</button>
+      <button id="btnSave">💾 保存阵型</button>
+      <button id="btnLoad">📂 加载阵型</button>
+    </div>
+  </section>
+
+  <!-- ====== 球场区域 ====== -->
+  <div class="field-wrapper" id="fieldWrapper">
+    <div class="field" id="field">
+
+      <!-- 球场标记层 -->
+      <div class="field-markings">
+        <div class="field-outline"></div>
+        <div class="center-line"></div>
+        <div class="center-circle"></div>
+        <div class="center-dot"></div>
+
+        <!-- 上方半场（对方半场） -->
+        <div class="penalty-area penalty-area-top">
+          <div class="goal-area goal-area-top">
+            <div class="goal goal-top"></div>
+          </div>
+        </div>
+
+        <!-- 下方半场（我方半场） -->
+        <div class="penalty-area penalty-area-bottom">
+          <div class="goal-area goal-area-bottom">
+            <div class="goal goal-bottom"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 球员容器 -->
+      <div class="players-container" id="playersContainer"></div>
+
+      <!-- 进攻方向指示 -->
+      <div class="attack-direction">
+        <span>⬆ 进攻方向 ⬆</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== 底部说明 ====== -->
+  <footer class="app-footer">
+    <p>🖐 拖动球员调整位置 &nbsp;|&nbsp; 👆 点击球员编辑号码、姓名、位置 &nbsp;|&nbsp; 📱 手机端也支持拖动</p>
+  </footer>
+
+  <!-- html2canvas CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
+  <!-- 主逻辑 -->
+  <script src="app.js"></script>
+</body>
+</html>
