@@ -74,43 +74,43 @@
         <div class="export-label" id="exportLabel"></div>
 
         <!-- SVG 球场标线层 -->
-        <svg class="field-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <svg class="field-lines" viewBox="0 0 68 105">
           <!-- 外边线 -->
-          <rect x="2" y="2" width="96" height="96" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="0.4"/>
+          <rect x="0" y="0" width="68" height="105" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="0.35"/>
           <!-- 中线 -->
-          <line x1="2" y1="50" x2="98" y2="50" stroke="rgba(255,255,255,0.9)" stroke-width="0.4"/>
+          <line x1="0" y1="52.5" x2="68" y2="52.5" stroke="rgba(255,255,255,0.9)" stroke-width="0.35"/>
           <!-- 中圈 -->
-          <circle cx="50" cy="50" r="9" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="0.4"/>
+          <circle cx="34" cy="52.5" r="9.15" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="0.35"/>
           <!-- 中点 -->
-          <circle cx="50" cy="50" r="0.8" fill="rgba(255,255,255,0.9)"/>
+          <circle cx="34" cy="52.5" r="0.4" fill="rgba(255,255,255,0.9)"/>
 
           <!-- 上方大禁区 -->
-          <path d="M 24 2 L 24 18 L 76 18 L 76 2" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="0.4"/>
+          <path d="M 13.84 0 L 13.84 16.5 L 54.16 16.5 L 54.16 0" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="0.35"/>
           <!-- 上方小禁区 -->
-          <path d="M 37 2 L 37 9 L 63 9 L 63 2" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="0.4"/>
+          <path d="M 24.84 0 L 24.84 5.5 L 43.16 5.5 L 43.16 0" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="0.35"/>
           <!-- 上方罚球点 -->
-          <circle cx="50" cy="13" r="0.7" fill="rgba(255,255,255,0.9)"/>
-          <!-- 上方罚球弧 -->
-          <path d="M 41 18 A 9 9 0 0 0 59 18" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="0.4"/>
+          <circle cx="34" cy="11" r="0.4" fill="rgba(255,255,255,0.9)"/>
+          <!-- 上方罚球弧（禁区外侧，朝中场） -->
+          <path d="M 26.69 16.5 A 9.15 9.15 0 0 1 41.31 16.5" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="0.35"/>
           <!-- 上方球门 -->
-          <rect x="42" y="2" width="16" height="2" fill="rgba(255,255,255,0.25)" stroke="rgba(255,255,255,0.9)" stroke-width="0.3"/>
+          <rect x="30.34" y="0" width="7.32" height="1.5" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.9)" stroke-width="0.3"/>
 
           <!-- 下方大禁区 -->
-          <path d="M 24 98 L 24 82 L 76 82 L 76 98" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="0.4"/>
+          <path d="M 13.84 105 L 13.84 88.5 L 54.16 88.5 L 54.16 105" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="0.35"/>
           <!-- 下方小禁区 -->
-          <path d="M 37 98 L 37 91 L 63 91 L 63 98" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="0.4"/>
+          <path d="M 24.84 105 L 24.84 99.5 L 43.16 99.5 L 43.16 105" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="0.35"/>
           <!-- 下方罚球点 -->
-          <circle cx="50" cy="87" r="0.7" fill="rgba(255,255,255,0.9)"/>
-          <!-- 下方罚球弧 -->
-          <path d="M 41 82 A 9 9 0 0 1 59 82" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="0.4"/>
+          <circle cx="34" cy="94" r="0.4" fill="rgba(255,255,255,0.9)"/>
+          <!-- 下方罚球弧（禁区外侧，朝中场） -->
+          <path d="M 26.69 88.5 A 9.15 9.15 0 0 0 41.31 88.5" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="0.35"/>
           <!-- 下方球门 -->
-          <rect x="42" y="96" width="16" height="2" fill="rgba(255,255,255,0.25)" stroke="rgba(255,255,255,0.9)" stroke-width="0.3"/>
+          <rect x="30.34" y="103.5" width="7.32" height="1.5" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.9)" stroke-width="0.3"/>
 
-          <!-- 角球弧 -->
-          <path d="M 2 5 A 3 3 0 0 1 5 2" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="0.35"/>
-          <path d="M 98 5 A 3 3 0 0 0 95 2" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="0.35"/>
-          <path d="M 2 95 A 3 3 0 0 0 5 98" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="0.35"/>
-          <path d="M 98 95 A 3 3 0 0 1 95 98" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="0.35"/>
+          <!-- 角球弧（1m弧，向场内） -->
+          <path d="M 1 0 A 1 1 0 0 0 0 1" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="0.3"/>
+          <path d="M 67 0 A 1 1 0 0 1 68 1" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="0.3"/>
+          <path d="M 1 105 A 1 1 0 0 1 0 104" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="0.3"/>
+          <path d="M 67 105 A 1 1 0 0 0 68 104" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="0.3"/>
         </svg>
 
         <!-- 球员容器 -->
